@@ -710,7 +710,8 @@ class Plugin(object):
             suffix = suffix,
             blind = blind
         )
-        return result.replace('\\n', '\n')
+        if isinstance(result, str):
+            return result.replace('\\n', '\n')
 
 
     def evaluate_blind(self, code, **kwargs):
@@ -851,4 +852,3 @@ class Plugin(object):
 
         # Update contexts on the instance
         self.contexts = contexts
-
